@@ -1,0 +1,17 @@
+openmeteo-requests
+pandas 
+requests_cache
+retry_requests 
+numpy
+mlflow
+notebook
+scikit-learn
+matplotlib
+python-box
+pyYAML
+tqdm
+ensure
+joblib
+types-pyYAML
+Flask
+Flask-Cors

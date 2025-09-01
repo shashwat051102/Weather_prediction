@@ -1,1 +1,26 @@
-key: value
+COLUMNS:
+  date: object
+  temperature_2m_max: float64
+  temperature_2m_min: float64
+  precipitation_sum: float64
+  rain_sum: float64
+  precipitation_hours: float64
+  temperature_2m_mean: float64
+  apparent_temperature_mean: float64
+  cloud_cover_mean: float64
+  cloud_cover_max: float64
+  cloud_cover_min: float64
+  sunshine_duration: float64
+  wind_speed_10m_max: float64
+  wind_gusts_10m_max: float64
+  wind_gusts_10m_mean: float64
+  wind_speed_10m_mean: float64
+  relative_humidity_2m_max: float64
+  relative_humidity_2m_min: float64
+  relative_humidity_2m_mean: float64
+
+TARGET:
+  temperature_2m_max: float64
+  temperature_2m_min: float64
+  precipitation_sum: float64
+  rain_sum: float64

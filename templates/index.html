@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .header h1 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e8ed;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .predict-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 1rem;
+        }
+        
+        .predict-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .predict-btn:active {
+            transform: translateY(0);
+        }
+        
+        .info-box {
+            background: #f8f9ff;
+            border: 1px solid #e1e8ed;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .info-box h3 {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+            font-size: 1rem;
+        }
+        
+        .coordinates-info {
+            background: #e8f4f8;
+            border-left: 4px solid #17a2b8;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .coordinates-info h4 {
+            margin: 0 0 0.5rem 0;
+            color: #17a2b8;
+            font-size: 1rem;
+        }
+        
+        .example-coords {
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            margin: 0.2rem 0;
+            display: inline-block;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌤️ Weather Prediction</h1>
+            <p>Predict tomorrow's maximum temperature using AI</p>
+        </div>
+        
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="latitude">Latitude:</label>
+                <input type="number" 
+                       id="latitude" 
+                       name="latitude" 
+                       step="0.000001" 
+                       value="20.5937" 
+                       placeholder="Enter latitude (e.g., 20.5937)"
+                       required>
+            </div>
+            
+            <div class="form-group">
+                <label for="longitude">Longitude:</label>
+                <input type="number" 
+                       id="longitude" 
+                       name="longitude" 
+                       step="0.000001" 
+                       value="78.9629" 
+                       placeholder="Enter longitude (e.g., 78.9629)"
+                       required>
+            </div>
+            
+            <button type="submit" class="predict-btn">
+                🔮 Predict Temperature
+            </button>
+        </form>
+        
+        <div class="coordinates-info">
+            <h4>📍 Default Location</h4>
+            <p>The default coordinates point to <strong>Wardha, Maharashtra, India</strong></p>
+            <div class="example-coords">Lat: 20.5937, Lon: 78.9629</div>
+        </div>
+        
+        <div class="info-box">
+            <h3>How it works:</h3>
+            <p>Our LSTM neural network analyzes historical weather patterns to predict the maximum temperature for the next day. The model uses real-time weather data from OpenMeteo API including temperature, precipitation, humidity, wind speed, and other meteorological factors.</p>
+        </div>
+    </div>
+</body>
+</html>

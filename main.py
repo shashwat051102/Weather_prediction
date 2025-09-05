@@ -2,6 +2,8 @@ from src.Predict_weather import logger
 from src.Predict_weather.pipeline.Data_ingestion_pipeline import DataIngestionTrainingPipeline
 from src.Predict_weather.pipeline.Data_validation_pipeline import DataValidationTrainingPipeline
 from src.Predict_weather.pipeline.Data_transformation_pipeline import DataTransformationTrainingPipeline
+from src.Predict_weather.pipeline.Model_trainer_pipeline import ModelTrainerTrainingPipeline
+from src.Predict_weather.pipeline.Model_evaluation_pipeline import ModelEvaluationTrainingPipeline
 
 
 if __name__ == "__main__":
@@ -34,6 +36,29 @@ if __name__ == "__main__":
         obj.initiate_data_transformation()
         logger.info(f">>>>> stage {STAGE_NAME} completed <<<<<\n\nx==========x")
         
+    except Exception as e:
+        logger.exception(e)
+        raise e
+    
+    STAGE_NAME = "Model Trainer Stage"
+    
+    try:
+        logger.info(f">>>>> stage {STAGE_NAME} started <<<<<")
+        obj_training = ModelTrainerTrainingPipeline()
+        obj_training.initiate_model_trainer()
+        logger.info(f">>>>> stage {STAGE_NAME} completed <<<<<\n\nx==========x")
+    except Exception as e:
+        logger.exception(e)
+        raise e
+        
+    STAGE_NAME = "Model Evaluation Stage"
+    
+    
+    try:
+        logger.info(f">>>>> stage {STAGE_NAME} started <<<<<")
+        obj_evaluation = ModelEvaluationTrainingPipeline()
+        obj_evaluation.initiate_model_evaluation()
+        logger.info(f">>>>> stage {STAGE_NAME} completed <<<<<\n\nx==========x")
     except Exception as e:
         logger.exception(e)
         raise e

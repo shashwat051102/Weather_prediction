@@ -1,8 +1,14 @@
-# Virtual environment
+# Virtual environments
+.venv/
 venv/
 env/
-.venv/
 .env
+
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
 
 # Logs
 logs/
@@ -10,11 +16,19 @@ logs/
 
 # Artifacts and data
 artifacts/
+data/
+datasets/
 
+# Research and notebooks
+research/
+**/*.ipynb
+.ipynb_checkpoints/
 
-__pycache__/
-
-
+# Caches
 .cache/
 *.sqlite
+
+# OS junk
+.DS_Store
+Thumbs.db
 

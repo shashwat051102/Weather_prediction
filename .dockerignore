@@ -1,0 +1,59 @@
+# Version control and editor configs
+.git
+.gitignore
+.github/
+.vscode/
+.idea/
+*.swp
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+ENV/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Caches and logs
+.cache/
+logs/
+.mlflow/
+pip-wheel-metadata/
+
+# Notebooks and research assets (not needed at runtime)
+research/
+**/*.ipynb
+.ipynb_checkpoints/
+
+# Tests
+tests/
+.pytest_cache/
+.coverage
+
+# Data and large artifacts not needed in image
+data/
+datasets/
+artifacts/**
+!artifacts/model_trainer/model.h5
+!artifacts/model_trainer/scaler.pkl
+
+# Build outputs
+build/
+dist/
+
+# Docker extras
+Dockerfile.old
+docker-compose*.yml
+
+# Misc
+*.bak
+*.tmp
